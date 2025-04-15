@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
@@ -20,7 +21,11 @@ const HeroSection = () => {
       
       {/* Content */}
       <div className="container-wide relative z-10 min-h-[600px] md:min-h-[650px] lg:min-h-[700px] flex flex-col justify-center py-20">
-        <SocialMediaBar />
+        {/* Move SocialMediaBar to the right side */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2">
+          <SocialMediaBar />
+        </div>
+        
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
             Qatar: Your Gateway to Global Business
