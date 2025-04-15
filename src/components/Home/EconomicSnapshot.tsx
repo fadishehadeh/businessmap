@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { TrendingUp, BarChart, FileCheck, Globe } from 'lucide-react';
 
@@ -32,7 +33,7 @@ const EconomicSnapshot = () => {
   return (
     <section className="py-20 relative">
       <div 
-        className="absolute inset-0 bg-cover bg-fixed opacity-15"
+        className="absolute inset-0 bg-cover bg-fixed opacity-100"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1460574283810-2aab119d8511?q=80&w=2070')"
         }}
