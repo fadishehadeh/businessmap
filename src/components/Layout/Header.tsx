@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -33,9 +32,9 @@ const Header = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/f16e4385-827b-4f3c-981d-74c69f7148be.png" 
+              src="/lovable-uploads/6a6aebf3-4c97-4018-8f5e-8fc47695e0ae.png" 
               alt="MOCI Logo" 
-              className="h-12 md:h-14" 
+              className="h-16 md:h-20" 
             />
           </Link>
         </div>
