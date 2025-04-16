@@ -15,11 +15,13 @@ const International = () => {
     <Layout>
       <InternationalHero />
       <InvestmentReasons />
-      <TailoredServices />
-      <InvestmentIncentives />
       <SectorOpportunities />
+      <TailoredServices />
+    
+      <InvestmentIncentives />
+     
       <CountrySelector />
-      <InternationalNews />
+
       <InternationalCTA />
     </Layout>
   );

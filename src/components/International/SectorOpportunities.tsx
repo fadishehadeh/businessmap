@@ -10,9 +10,9 @@ const sectors = [
     title: "Logistics & Transport",
     description: "World-class port facilities, airport, and regional connectivity",
     icon: Truck,
-    color: "from-blue-500 to-sky-600",
-    highlightColor: "bg-blue-100",
-    textColor: "text-blue-700",
+    color: "from-qatari to-qatari-dark",
+    highlightColor: "bg-red-50",
+    textColor: "black-700",
     details: "Qatar's strategic location and advanced logistics infrastructure make it an ideal hub for regional and global transport operations. With Hamad Port, Hamad International Airport, and extensive road networks, Qatar offers seamless multimodal connectivity.",
     opportunities: ["Warehousing & Distribution", "Freight Forwarding", "Supply Chain Management", "E-commerce Logistics"]
   },
@@ -21,9 +21,9 @@ const sectors = [
     title: "Tech & Innovation",
     description: "Digital infrastructure and innovation ecosystem",
     icon: Cpu,
-    color: "from-purple-500 to-indigo-600",
-    highlightColor: "bg-purple-100",
-    textColor: "text-purple-700",
+    color: "from-qatari to-qatari-dark",
+    color: "from-qatari to-qatari-dark",
+    highlightColor: "bg-red-50",
     details: "Qatar has made significant investments in building a knowledge-based economy. With initiatives like Qatar Science & Technology Park and the Innovation Zone, the country offers an ideal environment for tech startups and established companies alike.",
     opportunities: ["Fintech", "Smart City Solutions", "Cybersecurity", "AI & Machine Learning"]
   },
@@ -32,9 +32,9 @@ const sectors = [
     title: "Manufacturing",
     description: "Industrial zones with excellent connectivity and incentives",
     icon: Factory,
-    color: "from-green-500 to-emerald-600",
-    highlightColor: "bg-green-100",
-    textColor: "text-green-700",
+    color: "from-qatari to-qatari-dark",
+    highlightColor: "bg-red-50",
+    textColor: "black-700",
     details: "Qatar's manufacturing sector offers competitive advantages including low-cost energy, strategic location for exports, and state-of-the-art industrial zones with integrated logistics solutions. The country is particularly focused on high-value manufacturing.",
     opportunities: ["Food Processing", "Pharmaceuticals", "Building Materials", "Petrochemicals"]
   },
@@ -43,9 +43,9 @@ const sectors = [
     title: "Financial Services",
     description: "World-class financial center with regulatory advantages",
     icon: Building,
-    color: "from-amber-500 to-yellow-600",
-    highlightColor: "bg-amber-100",
-    textColor: "text-amber-700",
+    color: "from-qatari to-qatari-dark",
+    highlightColor: "bg-red-50",
+    textColor: "black-700",
     details: "The Qatar Financial Centre (QFC) offers a world-class platform for financial services companies, with its own legal, regulatory, tax, and business environment. It provides 100% foreign ownership and repatriation of profits.",
     opportunities: ["Banking", "Asset Management", "Insurance", "Islamic Finance"]
   },
@@ -54,9 +54,9 @@ const sectors = [
     title: "Tourism & Culture",
     description: "Growing tourism infrastructure and cultural initiatives",
     icon: Palette,
-    color: "from-rose-500 to-pink-600",
-    highlightColor: "bg-rose-100",
-    textColor: "text-rose-700",
+    color: "from-qatari to-qatari-dark",
+    highlightColor: "bg-red-50",
+    textColor: "black-700",
     details: "Qatar's tourism sector is rapidly expanding, supported by world-class hotels, cultural attractions, and sporting venues. The country's National Tourism Strategy aims to attract 6 million visitors annually by 2030.",
     opportunities: ["Hospitality", "Entertainment", "Cultural Tourism", "MICE Industry"]
   }
@@ -107,7 +107,7 @@ const SectorOpportunities = () => {
               <Button
                 asChild
                 variant="outline"
-                className="border-white text-white hover:bg-white/20 mt-4"
+                className="border-white text-black hover:bg-white/20 mt-4"
               >
                 <Link to={`/investors/sectors/${activeSector.id}`}>
                   Explore Sector
