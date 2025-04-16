@@ -117,8 +117,25 @@ const PopularServices = () => {
     setActiveService(null);
   };
 
+  // Support keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') {
+      document.querySelector('.carousel-next')?.dispatchEvent(
+        new MouseEvent('click', { bubbles: true })
+      );
+    } else if (e.key === 'ArrowLeft') {
+      document.querySelector('.carousel-prev')?.dispatchEvent(
+        new MouseEvent('click', { bubbles: true })
+      );
+    }
+  };
+
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section 
+      className="py-24 relative overflow-hidden"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+    >
       {/* Background with blur and Qatar skyline */}
       <div 
         className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center bg-fixed opacity-5"
@@ -139,10 +156,10 @@ const PopularServices = () => {
           </p>
         </div>
 
-        <div className="relative px-4 sm:px-8 md:px-12">
+        <div className="relative px-4 sm:px-6 md:px-8">
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
             className="w-full"
@@ -151,7 +168,7 @@ const PopularServices = () => {
               {services.map((service) => (
                 <CarouselItem 
                   key={service.id} 
-                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                  className="pl-4 md:basis-1/2 lg:basis-1/3"
                 >
                   <ServiceTile
                     service={service}
@@ -161,9 +178,29 @@ const PopularServices = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12" />
-            <CarouselNext className="hidden md:flex -right-12" />
+            <CarouselPrevious className="hidden md:flex -left-4 lg:-left-12 carousel-prev" />
+            <CarouselNext className="hidden md:flex -right-4 lg:-right-12 carousel-next" />
           </Carousel>
+
+          {/* Progress Indicators */}
+          <div className="flex justify-center space-x-2 mt-8">
+            {services.map((service, index) => (
+              <div 
+                key={service.id}
+                className={cn(
+                  "w-2 h-2 rounded-full transition-all duration-300",
+                  activeService?.id === service.id 
+                    ? "bg-qatari w-4" 
+                    : "bg-gray-300 hover:bg-gray-400"
+                )}
+                role="button"
+                tabIndex={0}
+                onClick={() => handleServiceClick(service)}
+                onKeyDown={(e) => e.key === 'Enter' && handleServiceClick(service)}
+                aria-label={`View ${service.title}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

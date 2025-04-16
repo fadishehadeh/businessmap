@@ -16,8 +16,8 @@ const ServiceTile = ({ service, isActive, onClick }: ServiceTileProps) => {
     <button
       onClick={onClick}
       className={cn(
-        "group relative w-full h-[400px] rounded-2xl overflow-hidden transition-all duration-500",
-        "hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-qatari focus:ring-offset-2",
+        "group relative w-full h-[350px] rounded-2xl overflow-hidden transition-all duration-500",
+        "hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-qatari focus:ring-offset-2",
         isActive && "ring-2 ring-qatari ring-offset-2"
       )}
     >
@@ -30,60 +30,62 @@ const ServiceTile = ({ service, isActive, onClick }: ServiceTileProps) => {
         />
       </div>
 
-      {/* Gradient Overlay for Better Text Readability */}
+      {/* Gradient Overlay */}
       <div className={cn(
         "absolute inset-0",
-        "bg-gradient-to-t from-black/90 via-black/60 to-transparent",
-        "opacity-80 transition-opacity duration-500"
+        "bg-gradient-to-t from-black/80 via-black/40 to-transparent",
+        "transition-opacity duration-500"
       )} />
 
-      {/* Content Container - Always Visible */}
-      <div className="absolute inset-0 p-8 flex flex-col justify-between">
-        {/* Top Section with Icon and Title */}
-        <div className="flex items-start space-x-4">
-          {/* Icon Badge */}
-          <div className={cn(
-            "flex items-center justify-center",
-            "w-12 h-12 rounded-xl",
-            "bg-white/10 backdrop-blur-md",
-            "border border-white/20",
-            "transform transition-all duration-500 group-hover:scale-110"
-          )}>
-            <service.icon className="h-6 w-6 text-white" />
-          </div>
-
-          {/* Title and Description */}
-          <div className="flex-1">
-            <h3 className={cn(
-              "text-xl font-semibold text-white mb-1",
-              "transition-transform duration-500 group-hover:translate-x-1"
-            )}>
-              {service.title}
-            </h3>
-            <p className="text-white/80 text-sm line-clamp-2">
-              {service.description}
-            </p>
-          </div>
+      {/* Main Content - Always Visible */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+        {/* Icon Container with Neumorphic Effect */}
+        <div className={cn(
+          "flex items-center justify-center",
+          "w-20 h-20 rounded-full mb-4",
+          "bg-white/10 backdrop-blur-md",
+          "border border-white/20 shadow-lg",
+          "transform transition-all duration-500 group-hover:scale-110",
+          "animate-slow-pulse"
+        )}>
+          <service.icon className="h-10 w-10 text-white" />
         </div>
 
-        {/* Bottom Section with Stats and CTA */}
-        <div className="space-y-4">
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-3">
-            {Object.entries(service.stats).map(([key, value], idx) => (
-              <div 
-                key={idx}
-                className={cn(
-                  "backdrop-blur-md bg-white/10 rounded-lg p-3",
-                  "border border-white/10",
-                  "transition-all duration-500",
-                  "group-hover:bg-white/15 group-hover:border-white/20"
-                )}
-              >
-                <p className="text-xs text-white/60 capitalize">
+        {/* Title */}
+        <h3 className={cn(
+          "text-xl font-semibold text-white mb-2 mt-2",
+          "transition-transform duration-500"
+        )}>
+          {service.title}
+        </h3>
+
+        {/* Short Description - Always Visible */}
+        <p className="text-white/80 text-sm max-w-[80%] opacity-80 transition-opacity duration-500 group-hover:opacity-0">
+          {service.description}
+        </p>
+      </div>
+
+      {/* Hover State Content */}
+      <div className={cn(
+        "absolute inset-0 flex flex-col items-center justify-center p-6",
+        "bg-black/40 backdrop-blur-sm",
+        "opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100",
+        "transition-all duration-500 ease-in-out"
+      )}>
+        <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 shadow-xl w-[80%] text-center">
+          {/* Description */}
+          <p className="text-white text-sm mb-4">
+            {service.description}
+          </p>
+
+          {/* Stats or Micro Data */}
+          <div className="flex justify-center gap-4 mb-4">
+            {Object.entries(service.stats).slice(0, 1).map(([key, value], idx) => (
+              <div key={idx} className="text-center">
+                <p className="text-white/70 text-xs capitalize">
                   {key.replace(/([A-Z])/g, ' $1').trim()}
                 </p>
-                <p className="text-sm text-white font-medium">{value}</p>
+                <p className="text-white text-sm font-medium">{value}</p>
               </div>
             ))}
           </div>
@@ -91,13 +93,13 @@ const ServiceTile = ({ service, isActive, onClick }: ServiceTileProps) => {
           {/* CTA Button */}
           <Button 
             className={cn(
-              "w-full bg-white/20 backdrop-blur-md hover:bg-white/30",
-              "text-white border border-white/20",
+              "bg-white/20 backdrop-blur-md hover:bg-white/30",
+              "text-white border border-white/20 mt-2",
               "transition-all duration-300 group/button"
             )}
           >
-            Explore Service
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/button:translate-x-1" />
+            Access Service
+            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/button:translate-x-1 animate-pulse" />
           </Button>
         </div>
       </div>
