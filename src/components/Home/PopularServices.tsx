@@ -44,9 +44,9 @@ const PopularServices = () => {
   return (
     <section className="py-20 relative">
       <div 
-        className="absolute inset-0 bg-cover bg-fixed opacity-100"
+        className="absolute inset-0 bg-cover bg-fixed opacity-50"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2070')"
+          backgroundImage: "url('public/images/image4.jpg')",
         }}
       />
       <div className="container-wide relative z-10">

@@ -177,7 +177,7 @@ const RegionalSection = () => {
                     className="glass-card p-5 flex flex-col h-full shadow-sm card-hover"
                   >
                     <div className="flex mb-4 items-center">
-                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-qatari to-qatari-light rounded-lg flex items-center justify-center text-2xl mr-3 shadow-md">
+                      <div className="text-white flex-shrink-0 w-10 h-10 bg-gradient-to-br from-qatari to-qatari-light rounded-lg flex items-center justify-center text-2xl mr-3 shadow-md">
                         {country.flag}
                       </div>
                       <h4 className="font-semibold">{country.name}</h4>

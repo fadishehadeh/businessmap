@@ -150,7 +150,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/56ed811a-e598-4910-909e-5b80311437bc.png" 
+              src="public/images/logo-main-white.svg" 
               alt="MOCI Logo" 
               className="h-12 mr-4 max-w-[200px] object-contain" 
             />
