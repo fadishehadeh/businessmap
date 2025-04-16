@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -53,7 +54,8 @@ const Header = () => {
             <Search className="h-5 w-5" />
           </Button>
 
-          <AuthButtons />
+          {/* Show AuthButtons only on desktop/larger screens */}
+          {!isMobile && <AuthButtons />}
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -114,7 +116,8 @@ const Header = () => {
               <Link to="/resources" className="py-2 text-lg border-b border-gray-100">
                 Resources
               </Link>
-              <div className="pt-4 flex flex-col gap-2">
+              {/* Place AuthButtons at the end of mobile menu */}
+              <div className="pt-4">
                 <AuthButtons />
               </div>
             </nav>
