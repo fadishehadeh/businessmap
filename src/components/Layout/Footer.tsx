@@ -124,32 +124,43 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white" role="contentinfo">
       <div className="container-wide py-12 md:py-16">
         {/* Chat With Us Button */}
         <div className="mb-8">
-          <Button className="bg-qatari hover:bg-qatari-light text-white font-bold px-6 py-3">
+          <Button
+            className="bg-qatari hover:bg-qatari-light text-white font-bold px-6 py-3"
+            aria-label="Start a chat conversation with our support team"
+          >
             Chat With Us
           </Button>
         </div>
 
         {/* Newsletter */}
-        <div className="mb-12 pb-12 border-b border-gray-800">
+        <section className="mb-12 pb-12 border-b border-gray-800" aria-labelledby="newsletter-heading">
           <div className="max-w-md">
-            <h3 className="text-xl font-semibold mb-2">Subscribe to our Newsletter</h3>
+            <h3 id="newsletter-heading" className="text-xl font-semibold mb-2">Subscribe to our Newsletter</h3>
             <p className="text-gray-400 mb-4">Stay updated with the latest news, investment opportunities, and events.</p>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <form className="flex flex-col sm:flex-row gap-2" aria-label="Newsletter subscription">
+              <label htmlFor="newsletter-email" className="sr-only">Email address for newsletter subscription</label>
               <Input
+                id="newsletter-email"
                 type="email"
                 placeholder="Your email address"
-                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 min-w-[280px]"
+                className="bg-white border border-gray-400 text-[#111827] placeholder:text-[#111827] min-w-[280px]"
+                required
+                aria-describedby="newsletter-description"
               />
-              <Button className="bg-qatari hover:bg-qatari-light">
+              <Button
+                type="submit"
+                className="bg-qatari hover:bg-qatari-light"
+                aria-label="Subscribe to newsletter"
+              >
                 Subscribe
               </Button>
-            </div>
+            </form>
           </div>
-        </div>
+        </section>
 
         {/* Links */}
         <div className="mb-12">
@@ -157,18 +168,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="flex items-center">
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row md:items-start justify-between gap-6">
+          <div className="flex flex-col">
             <img
               src="public/images/logo-main-white.svg"
               alt="MOCI Logo"
-              className="h-14 mr-4 max-w-[240px] object-contain"
+              className="h-[84px] max-w-[360px] object-contain mb-6"
             />
-            <div>
-              <p className="text-sm text-gray-400">
-                © {new Date().getFullYear()} Ministry of Commerce and Industry. All rights reserved.
-              </p>
-              <div className="flex gap-4 mt-2 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center gap-6 text-xl text-gray-400">
+              <p>© {new Date().getFullYear()} Ministry of Commerce and Industry. All rights reserved.</p>
+              <div className="flex gap-4">
                 <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
                 <Link to="/terms-of-use" className="hover:text-white">Terms of Use</Link>
                 <Link to="/sitemap" className="hover:text-white">Sitemap</Link>
@@ -180,7 +189,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
             {/* App Download Buttons */}
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-400 font-medium">Download Our App</p>
+              <p className="text-xl text-gray-400 font-medium">Download Our App</p>
               <div className="flex gap-3">
                 <a
                   href="https://apps.apple.com/app/moci-qatar"
@@ -191,7 +200,7 @@ const Footer = () => {
                   <img
                     src="/images/apple.png"
                     alt="Download on the App Store"
-                    className="h-10 w-auto"
+                    className="h-12 w-auto min-w-[120px]"
                   />
                 </a>
                 <a
@@ -203,7 +212,7 @@ const Footer = () => {
                   <img
                     src="/images/google.png"
                     alt="Get it on Google Play"
-                    className="h-10 w-auto"
+                    className="h-12 w-auto min-w-[120px]"
                   />
                 </a>
               </div>
@@ -211,7 +220,7 @@ const Footer = () => {
 
             {/* Social Media Icons */}
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-400 font-medium">Follow Us</p>
+              <p className="text-xl text-gray-400 font-medium">Follow Us</p>
               <div className="flex space-x-4">
                 <a
                   href="https://www.facebook.com/mociQatar"

@@ -86,7 +86,7 @@ const EconomicSnapshot = () => {
           })}
         </div>
 
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-start mt-10">
           <Button
             asChild
             className="bg-qatari hover:bg-qatari-light text-white"

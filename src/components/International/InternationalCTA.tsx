@@ -8,14 +8,14 @@ const InternationalCTA = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-qatari to-qatari-dark text-white">
       <div className="container-wide">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl text-left">
           <h2 className="text-4xl font-bold mb-6">Need Help Getting Started?</h2>
           <p className="text-xl text-white/90 mb-10">
             Our dedicated team of investment specialists is ready to guide you through
             every step of establishing and growing your business in Qatar.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Button
               asChild
               size="lg"

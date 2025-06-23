@@ -86,7 +86,7 @@ const NavigationMenuDemo = () => {
       <NavigationMenuList className="gap-1">
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.title}>
-            <NavigationMenuTrigger className="text-base font-medium">
+            <NavigationMenuTrigger className="text-xl font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-white hover:text-white focus:text-white">
               {item.title}
             </NavigationMenuTrigger>
             <NavigationMenuContent>

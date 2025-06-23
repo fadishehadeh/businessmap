@@ -62,7 +62,7 @@ const InvestmentReasons = () => {
             return (
               <div
                 key={reason.title}
-                className="glass-card p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden group"
+                className="glass-card border border-qatari p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden group"
                 onMouseEnter={() => setActiveReason(index)}
                 onMouseLeave={() => setActiveReason(null)}
               >
@@ -74,10 +74,10 @@ const InvestmentReasons = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-xl mb-2">{reason.title}</h3>
-                    <p className="text-gray-600">{reason.description}</p>
+                    <p className="text-gray-600 text-xl">{reason.description}</p>
 
                     {activeReason === index && (
-                      <div className="mt-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-md animate-fade-in">
+                      <div className="mt-4 text-xl text-gray-700 bg-gray-50 p-3 rounded-md animate-fade-in">
                         {reason.details}
                       </div>
                     )}

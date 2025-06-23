@@ -141,7 +141,7 @@ const CountrySelector = () => {
 
           {/* Country Details */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-md p-8">
+            <div className="bg-white rounded-xl shadow-md border border-qatari p-8">
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-4xl">
                   {selectedCountry.flag}
@@ -158,7 +158,7 @@ const CountrySelector = () => {
                     <FileText className="h-5 w-5 text-qatari mr-2" />
                     <h4 className="font-semibold">Trade Agreements</h4>
                   </div>
-                  <p className="text-gray-700 text-sm">{selectedCountry.detail.trade}</p>
+                  <p className="text-gray-700 text-xl">{selectedCountry.detail.trade}</p>
                 </div>
 
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -166,7 +166,7 @@ const CountrySelector = () => {
                     <MapPin className="h-5 w-5 text-qatari mr-2" />
                     <h4 className="font-semibold">Embassy</h4>
                   </div>
-                  <p className="text-gray-700 text-sm">{selectedCountry.detail.embassy}</p>
+                  <p className="text-gray-700 text-xl">{selectedCountry.detail.embassy}</p>
                 </div>
 
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -174,7 +174,7 @@ const CountrySelector = () => {
                     <Info className="h-5 w-5 text-qatari mr-2" />
                     <h4 className="font-semibold">Support Desk</h4>
                   </div>
-                  <p className="text-gray-700 text-sm">{selectedCountry.detail.support}</p>
+                  <p className="text-gray-700 text-xl">{selectedCountry.detail.support}</p>
                 </div>
               </div>
 

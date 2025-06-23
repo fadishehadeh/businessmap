@@ -56,7 +56,7 @@ const InternationalNews = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {newsItems.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-all duration-300">
+            <div key={item.id} className="bg-white rounded-xl shadow-sm border border-qatari overflow-hidden group hover:shadow-md transition-all duration-300">
               <div className="h-48 overflow-hidden relative">
                 <img 
                   src={item.image} 

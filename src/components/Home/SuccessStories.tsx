@@ -116,16 +116,16 @@ const SuccessStories = () => {
         </div>
 
         <Tabs defaultValue="success" className="w-full">
-          <TabsList className="mb-8">
-            <TabsTrigger value="success">Success Stories</TabsTrigger>
-            <TabsTrigger value="press" className="text-black data-[state=active]:text-black">Press Releases</TabsTrigger>
-            <TabsTrigger value="events" className="text-black data-[state=active]:text-black">Upcoming Events</TabsTrigger>
+          <TabsList className="mb-8 border border-gray-400">
+            <TabsTrigger value="success" className="text-xl">Success Stories</TabsTrigger>
+            <TabsTrigger value="press" className="text-black data-[state=active]:text-black text-xl">Press Releases</TabsTrigger>
+            <TabsTrigger value="events" className="text-black data-[state=active]:text-black text-xl">Upcoming Events</TabsTrigger>
           </TabsList>
 
           <TabsContent value="success">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {successStories.map((story) => (
-                <Card key={story.id} className="group overflow-hidden hover:shadow-md transition-shadow">
+                <Card key={story.id} className="border border-qatari group overflow-hidden hover:shadow-md transition-shadow">
                   <div className="h-48 overflow-hidden">
                     <img
                       src={story.image}
@@ -134,11 +134,11 @@ const SuccessStories = () => {
                     />
                   </div>
                   <CardHeader>
-                    <CardDescription className="text-black text-sm">{story.date}</CardDescription>
+                    <CardDescription className="text-black text-xl">{story.date}</CardDescription>
                     <CardTitle className="text-lg font-semibold line-clamp-2">{story.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 line-clamp-3">{story.excerpt}</p>
+                    <p className="text-gray-600 line-clamp-3 text-xl">{story.excerpt}</p>
                   </CardContent>
                   <CardFooter>
                     <Link to={`/media-centre/stories/${story.id}`} className="text-qatari font-medium text-sm flex items-center">
@@ -154,7 +154,7 @@ const SuccessStories = () => {
           <TabsContent value="press">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {pressReleases.map((press) => (
-                <Card key={press.id} className="group hover:shadow-md transition-shadow relative overflow-hidden">
+                <Card key={press.id} className="border border-qatari group hover:shadow-md transition-shadow relative overflow-hidden">
                   <div className="absolute inset-0 opacity-5">
                     <img
                       src="https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=2070"
@@ -164,11 +164,11 @@ const SuccessStories = () => {
                   </div>
                   <div className="relative z-10">
                     <CardHeader>
-                      <CardDescription className="text-black text-sm">{press.date}</CardDescription>
+                      <CardDescription className="text-black text-xl">{press.date}</CardDescription>
                       <CardTitle className="text-lg font-semibold line-clamp-2">{press.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 line-clamp-3">{press.excerpt}</p>
+                      <p className="text-gray-600 line-clamp-3 text-xl">{press.excerpt}</p>
                     </CardContent>
                     <CardFooter>
                       <Link to={`/media-centre/press/${press.id}`} className="text-qatari font-medium text-sm flex items-center">
@@ -185,7 +185,7 @@ const SuccessStories = () => {
           <TabsContent value="events">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {events.map((event) => (
-                <Card key={event.id} className="overflow-hidden hover:shadow-md transition-shadow">
+                <Card key={event.id} className="border border-qatari overflow-hidden hover:shadow-md transition-shadow">
                   <div className="h-48 overflow-hidden relative">
                     <img
                       src={event.image}
@@ -194,18 +194,18 @@ const SuccessStories = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-4 text-white">
-                      <div className="flex items-center text-sm mb-1">
+                      <div className="flex items-center text-xl mb-1">
                         <Calendar className="h-4 w-4 mr-1" />
                         {event.date}
                       </div>
-                      <div className="text-sm">{event.location}</div>
+                      <div className="text-xl">{event.location}</div>
                     </div>
                   </div>
                   <CardHeader>
                     <CardTitle className="text-lg font-semibold">{event.title}</CardTitle>
                   </CardHeader>
                   <CardFooter>
-                    <Link to={`/media-centre/events/${event.id}`} className="text-qatari font-medium text-sm flex items-center">
+                    <Link to={`/media-centre/events/${event.id}`} className="text-qatari font-medium text-xl flex items-center">
                       Event Details
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>

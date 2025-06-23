@@ -85,43 +85,49 @@ const RegionalSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="glass-card p-6 relative overflow-hidden group">
-            <div className="absolute inset-0 opacity-30 group-hover:opacity-20 transition-opacity">
+          <div className="glass-card border border-qatari overflow-hidden group">
+            <div className="h-48 overflow-hidden">
               <img
                 src="/public/images/image5.png"
                 alt="Foreign Ownership"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <Building2 className="h-8 w-8 text-qatari mb-4 relative z-10" />
-            <h3 className="text-xl font-semibold mb-2 relative z-10">100% Foreign Ownership</h3>
-            <p className="text-vlack relative z-10">Full ownership rights across most sectors, with streamlined company registration process.</p>
+            <div className="p-6">
+              <Building2 className="h-8 w-8 text-qatari mb-4" />
+              <h3 className="text-xl font-semibold mb-2">100% Foreign Ownership</h3>
+              <p className="text-gray-600">Full ownership rights across most sectors, with streamlined company registration process.</p>
+            </div>
           </div>
-          
-          <div className="glass-card p-6 relative overflow-hidden group">
-            <div className="absolute inset-0 opacity-30 group-hover:opacity-20 transition-opacity">
+
+          <div className="glass-card border border-qatari overflow-hidden group">
+            <div className="h-48 overflow-hidden">
               <img
                 src="/public/images/image6.png"
                 alt="Investment Incentives"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <Briefcase className="h-8 w-8 text-qatari mb-4 relative z-10" />
-            <h3 className="text-xl font-semibold mb-2 relative z-10">Investment Incentives</h3>
-            <p className="text-black relative z-10">Tax benefits, custom duty exemptions, and property ownership rights for foreign investors.</p>
+            <div className="p-6">
+              <Briefcase className="h-8 w-8 text-qatari mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Investment Incentives</h3>
+              <p className="text-gray-600">Tax benefits, custom duty exemptions, and property ownership rights for foreign investors.</p>
+            </div>
           </div>
-          
-          <div className="glass-card p-6 relative overflow-hidden group">
-            <div className="absolute inset-0 opacity-30 group-hover:opacity-20 transition-opacity">
+
+          <div className="glass-card border border-qatari overflow-hidden group">
+            <div className="h-48 overflow-hidden">
               <img
                 src="/public/images/image7.png"
                 alt="Strategic Location"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <Target className="h-8 w-8 text-qatari mb-4 relative z-10" />
-            <h3 className="text-xl font-semibold mb-2 relative z-10">Strategic Location</h3>
-            <p className="text-black relative z-10">Gateway to MENA markets with world-class infrastructure and logistics capabilities.</p>
+            <div className="p-6">
+              <Target className="h-8 w-8 text-qatari mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Strategic Location</h3>
+              <p className="text-gray-600">Gateway to MENA markets with world-class infrastructure and logistics capabilities.</p>
+            </div>
           </div>
         </div>
         
@@ -144,7 +150,7 @@ const RegionalSection = () => {
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-3">Opportunities for {userCountry.name} Investors</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-black mb-4">
                   {userCountry.description}
                 </p>
                 <Button
@@ -175,9 +181,9 @@ const RegionalSection = () => {
               .filter(country => country.code !== countryCode)
               .map((country) => (
                 <CarouselItem key={country.code} className="md:basis-1/3 lg:basis-1/4">
-                  <Link 
+                  <Link
                     to={`/investors/regions/${country.code.toLowerCase()}`}
-                    className="glass-card p-5 flex flex-col h-full shadow-sm card-hover"
+                    className="glass-card border border-qatari p-5 flex flex-col h-full shadow-sm card-hover"
                   >
                     <div className="flex mb-4 items-center">
                       <div className="text-white flex-shrink-0 w-10 h-10 bg-gradient-to-br from-qatari to-qatari-light rounded-lg flex items-center justify-center text-2xl mr-3 shadow-md">
@@ -185,10 +191,10 @@ const RegionalSection = () => {
                       </div>
                       <h4 className="font-semibold">{country.name}</h4>
                     </div>
-                    <p className="text-gray-600 text-sm mb-4 flex-grow">
+                    <p className="text-gray-600 text-xl mb-4 flex-grow">
                       {country.description}
                     </p>
-                    <div className="text-qatari font-medium text-sm flex items-center mt-auto">
+                    <div className="text-qatari font-medium text-xl flex items-center mt-auto">
                       Explore Opportunities
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </div>

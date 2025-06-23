@@ -23,21 +23,21 @@ const segments = [
     description: 'Access resources for Qatari businesses, licensing, trade registrations, and local regulations.',
     icon: Building2,
     link: '/consumers',
-    color: 'bg-white border-gray-200 border shadow-sm',
+    color: 'bg-white shadow-sm',
   },
   {
     title: 'Consumers',
     description: 'Learn about consumer protection, prices, and file complaints about commercial establishments.',
     icon: Users,
     link: '/consumers',
-    color: 'bg-white border-gray-200 border shadow-sm',
+    color: 'bg-white shadow-sm',
   },
   {
     title: 'Partner Organizations',
     description: 'Information for government entities, chambers of commerce, and partner organizations.',
     icon: BookOpen,
     link: '/organisations',
-    color: 'bg-white border-gray-200 border shadow-sm',
+    color: 'bg-white shadow-sm',
   },
 ];
 
@@ -60,7 +60,7 @@ const UserSegments = () => {
             return (
               <div
                 key={segment.title}
-                className={`rounded-xl p-6 ${segment.color} flex flex-col h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg`}
+                className={`rounded-xl p-6 border border-qatari ${segment.color} flex flex-col h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg`}
               >
                 <div className={`rounded-full w-12 h-12 flex items-center justify-center mb-4 ${segment.color === 'bg-qatari text-white' ? 'bg-white/20' : 'bg-qatari/10'}`}>
                   <IconComponent className={`h-6 w-6 ${segment.color === 'bg-qatari text-white' ? 'text-white' : 'text-qatari'}`} />
@@ -70,7 +70,7 @@ const UserSegments = () => {
                   {segment.title}
                 </h3>
 
-                <p className={`mb-6 flex-grow ${segment.color === 'bg-qatari text-white' ? 'text-white/90' : 'text-gray-600'}`}>
+                <p className={`mb-6 flex-grow text-xl ${segment.color === 'bg-qatari text-white' ? 'text-white/90' : 'text-gray-600'}`}>
                   {segment.description}
                 </p>
 

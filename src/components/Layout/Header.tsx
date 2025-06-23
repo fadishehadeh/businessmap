@@ -28,26 +28,27 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-white fixed top-0 left-0 right-0 z-40">
+    <header className="w-full bg-white fixed top-0 left-0 right-0 z-40" role="banner">
       {/* Second Tier Navigation */}
-      <div className="bg-gray-50 border-b border-gray-200">
+      <div className="bg-white border-b border-gray-200">
         <div className="container-wide">
           <div className="flex items-center justify-between py-3 gap-4">
-            {/* Left Side - Contact Information */}
-            <div className="flex items-center gap-4 text-sm">
-              <Link to="/contact" className="text-gray-600 hover:text-qatari flex items-center gap-1">
-                Contact us
+            {/* Logo */}
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center" aria-label="Qatar Ministry of Commerce and Industry - Home">
+                <img
+                  src="/images/logo-main.svg"
+                  alt="Qatar Ministry of Commerce and Industry Logo"
+                  className="h-[85px] md:h-[98px] max-w-[351px] object-contain"
+                />
               </Link>
-              <a href="tel:+97444069999" className="text-gray-600 hover:text-qatari flex items-center gap-1">
-                +974 4406 9999
-              </a>
             </div>
 
             {/* Right Side - Existing Items */}
             <div className="flex items-center gap-4">
               {/* Search Button */}
-              <Button variant="ghost" size="icon" aria-label="Search" className="text-gray-600 hover:text-qatari">
-                <Search className="h-4 w-4" />
+              <Button variant="ghost" size="icon" aria-label="Search the website" className="text-gray-600 hover:text-qatari">
+                <Search className="h-4 w-4" aria-hidden="true" />
               </Button>
 
               {/* Auth Buttons */}
@@ -58,17 +59,22 @@ const Header = () => {
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center gap-1 text-gray-600 hover:text-qatari">
-                    <Globe className="h-4 w-4 mr-1" />
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="flex items-center gap-1 text-gray-600 hover:text-qatari"
+                    aria-label="Select language - Current: English"
+                  >
+                    <Globe className="h-4 w-4 mr-1" aria-hidden="true" />
                     <span>EN</span>
-                    <ChevronDown className="h-3 w-3" />
+                    <ChevronDown className="h-3 w-3" aria-hidden="true" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem>English</DropdownMenuItem>
-                  <DropdownMenuItem>العربية</DropdownMenuItem>
-                  <DropdownMenuItem>中文</DropdownMenuItem>
-                  <DropdownMenuItem>Русский</DropdownMenuItem>
+                <DropdownMenuContent align="end" role="menu" aria-label="Language options">
+                  <DropdownMenuItem role="menuitem">English</DropdownMenuItem>
+                  <DropdownMenuItem role="menuitem" lang="ar">العربية</DropdownMenuItem>
+                  <DropdownMenuItem role="menuitem" lang="zh">中文</DropdownMenuItem>
+                  <DropdownMenuItem role="menuitem" lang="ru">Русский</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -77,44 +83,35 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className="bg-white border-b border-gray-100">
+      <div className="bg-qatari border-b border-gray-100">
         <div className="container-wide">
-          <div className="flex items-center justify-between py-4">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center">
-                <img
-                  src="/images/logo-main.svg"
-                  alt="MOCI Logo"
-                  className="h-20 md:h-24 max-w-[240px] object-contain"
-                />
-              </Link>
-            </div>
+          <div className="flex items-center justify-center py-4">
+            {/* Desktop Navigation - Centered */}
+            {!isMobile && (
+              <nav id="main-navigation" className="hidden lg:flex" role="navigation" aria-label="Main navigation">
+                <NavigationMenuDemo />
+              </nav>
+            )}
 
-            {/* Desktop Navigation - Right aligned to match top tier */}
-            <div className="flex items-center gap-4">
-              {!isMobile && (
-                <div className="hidden lg:flex">
-                  <NavigationMenuDemo />
-                </div>
-              )}
-
-              {/* Mobile menu toggle */}
-              {isMobile && (
+            {/* Mobile menu toggle - Positioned absolutely to the right */}
+            {isMobile && (
+              <div className="absolute right-4">
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={toggleMenu}
-                  aria-label="Toggle Menu"
+                  aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                  aria-expanded={isMenuOpen}
+                  aria-controls="mobile-navigation"
                 >
                   {isMenuOpen ? (
-                    <X className="h-5 w-5" />
+                    <X className="h-5 w-5" aria-hidden="true" />
                   ) : (
-                    <Menu className="h-5 w-5" />
+                    <Menu className="h-5 w-5" aria-hidden="true" />
                   )}
                 </Button>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -123,26 +120,31 @@ const Header = () => {
       {isMobile && isMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-[115px] bg-white z-30 animate-fade-in overflow-auto">
           <div className="container py-8">
-            <nav className="flex flex-col space-y-4">
-              <Link to="/about" className="py-2 text-lg border-b border-gray-100">
+            <nav
+              id="mobile-navigation"
+              className="flex flex-col space-y-4"
+              role="navigation"
+              aria-label="Mobile navigation"
+            >
+              <Link to="/about" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 About the Ministry
               </Link>
-              <Link to="/consumers" className="py-2 text-lg border-b border-gray-100">
+              <Link to="/consumers" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 Consumers
               </Link>
-              <Link to="/investors" className="py-2 text-lg border-b border-gray-100">
+              <Link to="/investors" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 Investors
               </Link>
-              <Link to="/organizations" className="py-2 text-lg border-b border-gray-100">
+              <Link to="/organizations" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 Organizations
               </Link>
-              <Link to="/industry" className="py-2 text-lg border-b border-gray-100">
+              <Link to="/industry" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 Industry
               </Link>
-              <Link to="/media-center" className="py-2 text-lg border-b border-gray-100">
+              <Link to="/media-center" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 Media Centre
               </Link>
-              <Link to="/resources" className="py-2 text-lg border-b border-gray-100">
+              <Link to="/resources" className="py-2 text-lg border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded">
                 Resources
               </Link>
               {/* Place AuthButtons at the end of mobile menu */}

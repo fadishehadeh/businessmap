@@ -65,20 +65,20 @@ const InvestmentIncentives = () => {
             const IconComponent = incentive.icon;
 
             return (
-              <div key={incentive.title} className="glass-card p-8 transition-all duration-300 hover:shadow-lg">
+              <div key={incentive.title} className="glass-card border border-qatari p-8 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center mb-6">
                   <div className="bg-qatari h-12 w-12 rounded-xl flex items-center justify-center mr-4">
                     <IconComponent className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">{incentive.title}</h3>
-                    <p className="text-gray-600">{incentive.description}</p>
+                    <p className="text-gray-600 text-xl">{incentive.description}</p>
                   </div>
                 </div>
 
                 <ul className="space-y-3 pl-4 border-l-2 border-qatari/20">
                   {incentive.details.map((detail, index) => (
-                    <li key={index} className="text-gray-700">
+                    <li key={index} className="text-gray-700 text-xl">
                       {detail}
                     </li>
                   ))}

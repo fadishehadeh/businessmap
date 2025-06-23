@@ -84,7 +84,7 @@ const SectorOpportunities = () => {
             return (
               <button
                 key={sector.id}
-                className={`flex items-center px-4 py-3 rounded-full transition-all duration-300 ${
+                className={`flex items-center px-4 py-3 rounded-full border border-qatari transition-all duration-300 ${
                   isActive
                     ? `bg-gradient-to-r ${sector.color} text-white shadow-md`
                     : 'bg-white hover:bg-gray-100 text-black'
@@ -98,7 +98,7 @@ const SectorOpportunities = () => {
           })}
         </div>
 
-        <div className="bg-white rounded-xl shadow-md overflow-hidden">
+        <div className="bg-white rounded-xl shadow-md border border-qatari overflow-hidden">
           <div className="md:flex">
             <div className={`md:w-1/3 p-8 bg-gradient-to-br ${activeSector.color} text-white`}>
               <activeSector.icon className="h-12 w-12 mb-4" />
