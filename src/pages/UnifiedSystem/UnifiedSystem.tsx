@@ -164,16 +164,14 @@ const UnifiedSystem: React.FC = () => {
 
           {/* MOCI Logo Card */}
           <div className="bg-[#345D9B]/30 backdrop-blur-sm rounded-lg p-12 flex flex-col items-center justify-center text-white animate-slide-in-right hover:bg-[#345D9B]/40 transition-all duration-500 hover:scale-[1.02]">
-            <div className="w-48 h-48 bg-white/20 rounded-full flex items-center justify-center mb-6 hover:scale-110 hover:rotate-6 transition-all duration-500 animate-pulse-slow">
-              {/* MOCI Emblem */}
+            <div className="w-1/2 flex items-center justify-center mb-6 hover:scale-110 transition-all duration-500">
+              {/* Unified Logo */}
               <img
-                src="/images/emblem.png"
-                alt="MOCI Emblem"
-                className="w-40 h-40 object-contain"
+                src="/images/unifiedlogo.png"
+                alt="Unified System Logo"
+                className="w-full h-auto object-contain"
               />
             </div>
-            <h1 className="text-3xl font-bold text-center mb-2 animate-fade-in" style={{ animationDelay: '0.5s' }}>وزارة التجارة والصناعة</h1>
-            <p className="text-center text-sm opacity-90 animate-fade-in" style={{ animationDelay: '0.7s' }}>تعزيز بيئة تجارية وصناعية تنافسية ومستدامة</p>
           </div>
         </div>
       </div>
@@ -203,20 +201,20 @@ const UnifiedSystem: React.FC = () => {
                   >
                     <CardContent className="p-6 flex flex-col items-center gap-4 relative z-10">
                       <div className="bg-[#345D9B]/10 p-3 rounded-lg group-hover:bg-[#345D9B] group-hover:rotate-6 group-hover:scale-110 transition-all duration-500">
-                        <service.icon className="h-6 w-6 text-[#345D9B] group-hover:text-white transition-colors duration-300" />
+                        <service.icon className="h-5 w-5 text-[#345D9B] group-hover:text-white transition-colors duration-300" />
                       </div>
                       <div className="flex-1 text-center w-full">
-                        <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-[#345D9B] transition-colors">
+                        <h3 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#345D9B] transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-sm text-gray-500">{service.titleEn}</p>
+                        <p className="text-xs text-gray-500">{service.titleEn}</p>
                       </div>
 
                       {/* Hover Button */}
                       <div className={`absolute inset-0 bg-gradient-to-t from-[#345D9B]/95 to-[#345D9B]/80 flex items-center justify-center transition-all duration-500 ${
                         hoveredCard === index ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                       }`}>
-                        <Button className="bg-white text-[#345D9B] hover:bg-gray-100 font-bold px-6 py-3 rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:rotate-3">
+                        <Button className="bg-white text-[#345D9B] hover:bg-gray-100 font-bold text-sm px-5 py-2 rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:rotate-3">
                           زيارة الخدمة
                         </Button>
                       </div>
