@@ -62,7 +62,7 @@ const UnifiedSystem: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-l from-[#1D4381] to-[#1B458A]" style={{ fontFamily: 'Lusail, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+    <div className="min-h-screen bg-gradient-to-l from-[#1D4381] to-[#1B458A]" dir="rtl" style={{ fontFamily: 'Lusail, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
       {/* Header */}
       <header className="p-6 flex justify-between items-center animate-fade-in">
         {/* Left side - Language and accessibility */}
@@ -79,16 +79,16 @@ const UnifiedSystem: React.FC = () => {
 
         {/* Right side - Logos */}
         <div className="flex items-center gap-6">
-          {/* Unified Logo */}
-          <img
-            src="/images/unifiedlogo.png"
-            alt="Unified Logo"
-            className="h-16 object-contain hover:scale-105 transition-transform"
-          />
           {/* MOCI Logo */}
           <img
             src="/images/logo-main-white.svg"
             alt="MOCI Logo"
+            className="h-20 object-contain hover:scale-105 transition-transform"
+          />
+          {/* Unified Logo - Increased size */}
+          <img
+            src="/images/unifiedlogo.png"
+            alt="Unified Logo"
             className="h-20 object-contain hover:scale-105 transition-transform"
           />
         </div>
@@ -175,8 +175,8 @@ const UnifiedSystem: React.FC = () => {
       {/* Services Section */}
       <div className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Side Menu */}
+          <div className="flex flex-col lg:flex-row-reverse gap-8">
+            {/* Side Menu - Moved to the right */}
             <div className="lg:w-80">
               <Card className="bg-white shadow-lg sticky top-4">
                 <CardContent className="p-6">
@@ -195,7 +195,7 @@ const UnifiedSystem: React.FC = () => {
                           onClick={() => setSelectedMenu(item.id)}
                           className={`w-full flex items-center justify-end gap-3 p-3 rounded-lg text-right transition-all duration-200 ${
                             selectedMenu === item.id
-                              ? 'bg-[#345D9B]/10 text-[#345D9B] border-r-4 border-[#345D9B]'
+                              ? 'bg-[#345D9B]/10 text-[#345D9B] border-l-4 border-[#345D9B]'
                               : 'hover:bg-gray-100 text-gray-700'
                           }`}
                         >
@@ -252,12 +252,12 @@ const UnifiedSystem: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-4 flex-row-reverse">
-                  <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">←</button>
-                  <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">3</button>
-                  <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">2</button>
-                  <button className="px-4 py-2 bg-[#345D9B] text-white rounded shadow-lg">1</button>
+                <div className="flex items-center justify-center gap-2 mb-4">
                   <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">→</button>
+                  <button className="px-4 py-2 bg-[#345D9B] text-white rounded shadow-lg">1</button>
+                  <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">2</button>
+                  <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">3</button>
+                  <button className="px-4 py-2 text-[#345D9B] hover:bg-gray-100 rounded transition-all hover:scale-110">←</button>
                 </div>
                 <p className="text-sm text-gray-600">عرض 1 إلى 12 من 36 نتيجة</p>
               </div>
@@ -270,8 +270,8 @@ const UnifiedSystem: React.FC = () => {
       <footer className="bg-[#345D9B] text-white py-8">
         <div className="container mx-auto px-4">
           {/* Top Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
-            {/* Logo */}
+          <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-6 mb-6">
+            {/* Logo - Moved to the right */}
             <div className="flex items-center gap-4">
               <img
                 src="/images/logo-main-white.svg"
@@ -280,8 +280,8 @@ const UnifiedSystem: React.FC = () => {
               />
             </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-wrap justify-center md:justify-end gap-8 text-white">
+            {/* Contact Info - Moved to the left */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-8 text-white">
               {/* Contact Us */}
               <div className="text-center">
                 <div className="text-sm mb-2">تواصل معنا</div>
