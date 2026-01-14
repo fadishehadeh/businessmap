@@ -245,7 +245,7 @@ const BuildingVisualization: React.FC<BuildingVisualizationProps> = ({
                       {isTargetFloor && (
                         <div className="flex items-center gap-1 text-qatari ml-2">
                           <MapPin className="h-4 w-4 fill-current" />
-                          <span className="text-xs font-bold">YOU ARE HERE</span>
+                          <span className="text-xs font-bold">Your office is here</span>
                         </div>
                       )}
                     </div>
