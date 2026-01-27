@@ -55,11 +55,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     applyTheme(newTheme);
   };
 
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide the context, even before mounted to prevent "useTheme must be used within a ThemeProvider" errors
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === 'dark' }}>
       {children}
