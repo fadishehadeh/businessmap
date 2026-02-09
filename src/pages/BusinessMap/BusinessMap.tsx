@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '@/components/Layout/Layout';
+import SingleWindowLayout from '@/components/Layout/SingleWindowLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,7 +17,6 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
-import PageHero from '@/components/ui/PageHero';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import QatarMap from './QatarMap';
 
@@ -128,27 +127,29 @@ const BusinessMap = () => {
   ];
 
   return (
-    <Layout>
-      <PageHero
-        backgroundImage="/images/image1.jpg"
-        title="خريطة الأعمال لدولة قطر"
-        subtitle="Qatar Business Map – Commercial Activities & Establishments Portal"
-        overlayType="gradient-dark"
-        textColor="white"
-        height="medium"
-        textAlign="center"
-      />
+    <SingleWindowLayout>
+      {/* Page Title Section */}
+      <div className="bg-white border-b border-gray-200 py-8">
+        <div className="container-wide mx-auto px-4">
+          <h1 className="text-3xl font-bold text-[#19407F] text-center" dir="rtl">
+            خريطة الأعمال لدولة قطر
+          </h1>
+          <p className="text-center text-gray-600 mt-2">
+            Qatar Business Map – Commercial Activities & Establishments Portal
+          </p>
+        </div>
+      </div>
 
-      <div className="bg-gray-50 dark:bg-gray-900 py-12">
-        <div className="container-wide">
+      <div className="bg-gray-50 py-12">
+        <div className="container-wide mx-auto px-4">
           {/* Mode Selection Buttons */}
           <div className="flex gap-4 mb-8 justify-center" dir="rtl">
             <Button
               onClick={() => setActiveMode('activities')}
-              className={`px-8 py-6 text-lg font-semibold ${
+              className={`px-8 py-6 text-lg font-semibold transition-all ${
                 activeMode === 'activities'
-                  ? 'bg-qatari hover:bg-qatari-dark text-white'
-                  : 'bg-white text-qatari border-2 border-qatari hover:bg-qatari/10'
+                  ? 'bg-[#19407F] hover:bg-[#19407F]/90 text-white border-2 border-[#FDC300]'
+                  : 'bg-white text-[#19407F] border-2 border-[#19407F] hover:bg-[#19407F]/10'
               }`}
             >
               <Search className="ml-2 h-5 w-5" />
@@ -156,10 +157,10 @@ const BusinessMap = () => {
             </Button>
             <Button
               onClick={() => setActiveMode('establishments')}
-              className={`px-8 py-6 text-lg font-semibold ${
+              className={`px-8 py-6 text-lg font-semibold transition-all ${
                 activeMode === 'establishments'
-                  ? 'bg-qatari hover:bg-qatari-dark text-white'
-                  : 'bg-white text-qatari border-2 border-qatari hover:bg-qatari/10'
+                  ? 'bg-[#19407F] hover:bg-[#19407F]/90 text-white border-2 border-[#FDC300]'
+                  : 'bg-white text-[#19407F] border-2 border-[#19407F] hover:bg-[#19407F]/10'
               }`}
             >
               <Building2 className="ml-2 h-5 w-5" />
@@ -172,7 +173,7 @@ const BusinessMap = () => {
             <div className="space-y-8">
               {/* Filters Section */}
               <Card>
-                <CardHeader className="bg-qatari text-white">
+                <CardHeader className="bg-[#19407F] text-white">
                   <CardTitle className="text-xl" dir="rtl">فلاتر البحث</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
@@ -199,7 +200,7 @@ const BusinessMap = () => {
                           placeholder="أدخل الكود"
                           className="flex-1"
                         />
-                        <Button className="bg-qatari hover:bg-qatari-dark text-white">
+                        <Button className="bg-[#19407F] hover:bg-[#19407F]/90 text-white">
                           Activate
                         </Button>
                       </div>
@@ -241,7 +242,7 @@ const BusinessMap = () => {
 
               {/* Results Table */}
               <Card>
-                <CardHeader className="bg-qatari text-white">
+                <CardHeader className="bg-[#19407F] text-white">
                   <CardTitle className="text-xl" dir="rtl">نتيجة البحث عن الأنشطة التجارية</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -275,7 +276,7 @@ const BusinessMap = () => {
             <div className="space-y-8">
               {/* Search Mode Selection */}
               <Card>
-                <CardHeader className="bg-qatari text-white">
+                <CardHeader className="bg-[#19407F] text-white">
                   <CardTitle className="text-xl" dir="rtl">طريقة البحث</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
@@ -289,7 +290,7 @@ const BusinessMap = () => {
                           value="registry"
                           checked={searchMode === 'registry'}
                           onChange={(e) => setSearchMode(e.target.value as any)}
-                          className="w-4 h-4 text-qatari"
+                          className="w-4 h-4 text-[#19407F] accent-[#19407F]"
                         />
                         <span className="font-medium">رقم السجل التجاري</span>
                       </label>
@@ -300,7 +301,7 @@ const BusinessMap = () => {
                           value="name"
                           checked={searchMode === 'name'}
                           onChange={(e) => setSearchMode(e.target.value as any)}
-                          className="w-4 h-4 text-qatari"
+                          className="w-4 h-4 text-[#19407F] accent-[#19407F]"
                         />
                         <span className="font-medium">اسم المنشأة</span>
                       </label>
@@ -311,7 +312,7 @@ const BusinessMap = () => {
                           value="license"
                           checked={searchMode === 'license'}
                           onChange={(e) => setSearchMode(e.target.value as any)}
-                          className="w-4 h-4 text-qatari"
+                          className="w-4 h-4 text-[#19407F] accent-[#19407F]"
                         />
                         <span className="font-medium">رقم الرخصة التجارية</span>
                       </label>
@@ -395,15 +396,15 @@ const BusinessMap = () => {
                 {kpiData.map((kpi, index) => {
                   const IconComponent = kpi.icon;
                   return (
-                    <Card key={index} className="border-2 border-qatari/20 hover:border-qatari transition-all">
+                    <Card key={index} className="border-2 border-[#19407F]/20 hover:border-[#FDC300] transition-all">
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-4">
-                          <div className="w-12 h-12 rounded-full bg-qatari/10 flex items-center justify-center">
-                            <IconComponent className="h-6 w-6 text-qatari" />
+                          <div className="w-12 h-12 rounded-full bg-[#19407F]/10 flex items-center justify-center">
+                            <IconComponent className="h-6 w-6 text-[#19407F]" />
                           </div>
                         </div>
-                        <div className="text-3xl font-bold text-qatari mb-2">{kpi.value}</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400" dir="rtl">
+                        <div className="text-3xl font-bold text-[#19407F] mb-2">{kpi.value}</div>
+                        <div className="text-sm text-gray-600" dir="rtl">
                           {kpi.label}
                         </div>
                       </CardContent>
@@ -414,7 +415,7 @@ const BusinessMap = () => {
 
               {/* Qatar Map */}
               <Card>
-                <CardHeader className="bg-qatari text-white">
+                <CardHeader className="bg-[#19407F] text-white">
                   <CardTitle className="text-xl" dir="rtl">التوزيع الجغرافي للمنشآت</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
@@ -426,7 +427,7 @@ const BusinessMap = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Licenses by Municipality */}
                 <Card>
-                  <CardHeader className="bg-qatari text-white">
+                  <CardHeader className="bg-[#19407F] text-white">
                     <CardTitle className="text-lg" dir="rtl">عدد التراخيص التجارية حسب البلدية</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -436,7 +437,7 @@ const BusinessMap = () => {
                         <XAxis dataKey="name" />
                         <YAxis orientation="right" />
                         <Tooltip />
-                        <Bar dataKey="value" fill="#8b0d32" />
+                        <Bar dataKey="value" fill="#19407F" />
                       </BarChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -444,7 +445,7 @@ const BusinessMap = () => {
 
                 {/* License Duration Distribution */}
                 <Card>
-                  <CardHeader className="bg-qatari text-white">
+                  <CardHeader className="bg-[#19407F] text-white">
                     <CardTitle className="text-lg" dir="rtl">التراخيص التجارية حسب بداية ونهاية الرخص</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -454,7 +455,7 @@ const BusinessMap = () => {
                         <XAxis dataKey="name" />
                         <YAxis orientation="right" />
                         <Tooltip />
-                        <Bar dataKey="value" fill="#8b0d32" />
+                        <Bar dataKey="value" fill="#19407F" />
                       </BarChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -462,7 +463,7 @@ const BusinessMap = () => {
 
                 {/* Expired Registers */}
                 <Card>
-                  <CardHeader className="bg-qatari text-white">
+                  <CardHeader className="bg-[#19407F] text-white">
                     <CardTitle className="text-lg" dir="rtl">عدد السجلات التجارية المنتهية خلال آخر 5 سنوات</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -472,7 +473,7 @@ const BusinessMap = () => {
                         <XAxis dataKey="name" />
                         <YAxis orientation="right" />
                         <Tooltip />
-                        <Bar dataKey="value" fill="#8b0d32" />
+                        <Bar dataKey="value" fill="#19407F" />
                       </BarChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -480,7 +481,7 @@ const BusinessMap = () => {
 
                 {/* New Registers */}
                 <Card>
-                  <CardHeader className="bg-qatari text-white">
+                  <CardHeader className="bg-[#19407F] text-white">
                     <CardTitle className="text-lg" dir="rtl">عدد السجلات التجارية الجديدة خلال آخر 5 سنوات</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -490,7 +491,7 @@ const BusinessMap = () => {
                         <XAxis dataKey="name" />
                         <YAxis orientation="right" />
                         <Tooltip />
-                        <Bar dataKey="value" fill="#8b0d32" />
+                        <Bar dataKey="value" fill="#19407F" />
                       </BarChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -499,7 +500,7 @@ const BusinessMap = () => {
 
               {/* Latest Registered Commercial Establishments Table */}
               <Card>
-                <CardHeader className="bg-qatari text-white">
+                <CardHeader className="bg-[#19407F] text-white">
                   <CardTitle className="text-xl" dir="rtl">أحدث المنشآت التجارية المسجلة</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -562,7 +563,7 @@ const BusinessMap = () => {
 
               {/* Latest Licensed Commercial Activities Table */}
               <Card>
-                <CardHeader className="bg-qatari text-white">
+                <CardHeader className="bg-[#19407F] text-white">
                   <CardTitle className="text-xl" dir="rtl">أحدث الأنشطة التجارية المرخصة</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -604,7 +605,7 @@ const BusinessMap = () => {
           )}
         </div>
       </div>
-    </Layout>
+    </SingleWindowLayout>
   );
 };
 
